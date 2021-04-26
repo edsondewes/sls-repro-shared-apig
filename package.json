@@ -1,0 +1,17 @@
+{
+  "name": "sls-apig",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "deploy:shared": "serverless deploy --config shared/serverless.yml",
+    "deploy:service1": "serverless deploy --config service1/serverless.yml",
+    "deploy:service2": "serverless deploy --config service2/serverless.yml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^2.38.0"
+  }
+}

@@ -1,0 +1,26 @@
+service: service2
+
+useDotenv: true
+variablesResolutionMode: 20210219
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 256
+  versionFunctions: false
+  apiGateway:
+    restApiId:
+      'Fn::ImportValue': MyApiGateway-restApiId
+    restApiRootResourceId:
+      'Fn::ImportValue': MyApiGateway-rootResourceId
+  
+functions:
+  myhandler2:
+    handler: ./service2/handler2.handle
+    events:
+      - http:
+          method: post
+          path: service2/handler
+          request:
+            schemas:
+              application/json: ${file(./service2/schema2.json)}
